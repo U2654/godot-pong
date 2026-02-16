@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://da8nnse7hu2wu"]
+
+[ext_resource type="Script" uid="uid://y0jfs36ti65e" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://cu37iiq44ils5" path="res://ball.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://blc3hu867ea7v" path="res://ball_sprite.gd" id="3_7jktm"]
+[ext_resource type="Script" uid="uid://dlf1c6eb3nxda" path="res://paddle.gd" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://v1dbafejb6fv" path="res://scoreboard.gd" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://denwtj6xsjpi1" path="res://paddle_sprite.gd" id="5_ryrav"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eow3j"]
+size = Vector2(20, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
+size = Vector2(20, 100)
+
+[node name="Game" type="Node2D" unique_id=1800874048]
+script = ExtResource("1_80nbo")
+
+[node name="Ball" type="Area2D" parent="." unique_id=1439483374]
+position = Vector2(430, 300)
+script = ExtResource("2_e2o6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=650308988]
+shape = SubResource("CircleShape2D_ryrav")
+
+[node name="BallSprite" type="Node2D" parent="Ball" unique_id=466825795]
+script = ExtResource("3_7jktm")
+
+[node name="LeftPaddle" type="Area2D" parent="." unique_id=1671191360]
+position = Vector2(50, 300)
+script = ExtResource("3_feb5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddle" unique_id=835099690]
+shape = SubResource("RectangleShape2D_eow3j")
+
+[node name="LeftPaddleSprite" type="Node2D" parent="LeftPaddle" unique_id=1443199907]
+script = ExtResource("5_ryrav")
+
+[node name="RightPaddle" type="Area2D" parent="." unique_id=269290565]
+position = Vector2(750, 300)
+script = ExtResource("3_feb5d")
+is_left = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPaddle" unique_id=1533727946]
+shape = SubResource("RectangleShape2D_j5wjh")
+
+[node name="RightPaddleSprite" type="Node2D" parent="RightPaddle" unique_id=1983579593]
+script = ExtResource("5_ryrav")
+
+[node name="Scoreboard" type="CanvasLayer" parent="." unique_id=694358161]
+script = ExtResource("4_fc0e3")
+
+[node name="ScoreLabel" type="Label" parent="Scoreboard" unique_id=404446663]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 48
+
+[node name="WinnerLabel" type="Label" parent="Scoreboard" unique_id=567518092]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -33.5
+offset_right = 20.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+
+[connection signal="area_entered" from="Ball" to="Ball" method="_on_area_entered"]
