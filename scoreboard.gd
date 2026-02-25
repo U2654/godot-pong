@@ -29,3 +29,6 @@ func show_winner():
 	else:
 		winner_label.text = "Right Player Wins!"
 	winner_label.visible = true
+
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://menu.tscn")

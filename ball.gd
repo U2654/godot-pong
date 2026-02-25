@@ -1,7 +1,7 @@
 class_name Ball
 extends Area2D
 
-@export var speed := 300.0
+var speed := 300.0
 
 signal scored(side : String)
 
@@ -9,6 +9,7 @@ var velocity := Vector2.ZERO
 var start_position := Vector2.ZERO
 
 func _ready():
+	speed = Settings.ball_speed
 	start_position = position
 	reset_ball()
 
@@ -41,3 +42,5 @@ func _physics_process(delta):
 
 func _on_area_entered(_area):
 	velocity.x *= -1
+	$HitSound.play()
+	

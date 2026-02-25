@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cu37iiq44ils5" path="res://ball.gd" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://blc3hu867ea7v" path="res://ball_sprite.gd" id="3_7jktm"]
 [ext_resource type="Script" uid="uid://dlf1c6eb3nxda" path="res://paddle.gd" id="3_feb5d"]
+[ext_resource type="AudioStream" uid="uid://3mc48ltckv2" path="res://Ping.mp3" id="4_eow3j"]
 [ext_resource type="Script" uid="uid://v1dbafejb6fv" path="res://scoreboard.gd" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://denwtj6xsjpi1" path="res://paddle_sprite.gd" id="5_ryrav"]
 
@@ -28,6 +29,9 @@ shape = SubResource("CircleShape2D_ryrav")
 
 [node name="BallSprite" type="Node2D" parent="Ball" unique_id=466825795]
 script = ExtResource("3_7jktm")
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="Ball" unique_id=1948800848]
+stream = ExtResource("4_eow3j")
 
 [node name="LeftPaddle" type="Area2D" parent="." unique_id=1671191360]
 position = Vector2(50, 300)
