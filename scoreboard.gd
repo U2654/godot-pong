@@ -1,3 +1,4 @@
+class_name ScoreBoard
 extends CanvasLayer
 
 var left_score := 0

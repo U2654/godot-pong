@@ -1,3 +1,4 @@
+class_name Game
 extends Node2D
 
 const SCORE_LIMIT := 10

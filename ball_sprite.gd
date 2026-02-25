@@ -1,3 +1,4 @@
+class_name BallSprite
 extends Node2D
 
 @export var size = Vector2(16, 16)

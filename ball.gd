@@ -1,3 +1,4 @@
+class_name Ball
 extends Area2D
 
 @export var speed := 300.0

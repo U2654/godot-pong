@@ -1,3 +1,4 @@
+class_name PaddleSprite
 extends Node2D
 
 @export var size = Vector2(20, 100)
